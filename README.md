@@ -118,7 +118,7 @@ These are the top 5 strongest features that we should focus on:
 - pdays_contacted: Previous contact history is significant but in moderate volume.
 
 - month_aug / mar: Specific months provides seasonal advantage.
-
+<br>
 These are the top 5 negative features that we should avoid:  
 <br>
 #### The Strongest Barriers
