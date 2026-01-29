@@ -77,7 +77,7 @@ The data is related with direct marketing campaigns of a Portuguese banking inst
 Our main goal is to build a predictive model using classification algorithms to find out which existing customers are most likely to say "yes" or "no" to subscribe on bank term deposit subscription. Another objective is to improve the bank's marketing efficiency by identifying features that lead to higher conversion rates. These factors will allow the bank to reduce wasted effort on mass phone calls and marketing spend by targeting and identifying customers that are likely to subscribe.
 
 
-**Model Comparison:**
+**Model Comparison with Default Settings**
 
 - Logistic Regression, KNN and Decision Tree are very fast to train. SVM has the slowest training time.
 - Train Accuracy scores for Logistic Regression, KKN and SVM are close to each other while Decision Tree is the highest.
@@ -94,15 +94,15 @@ Our main goal is to build a predictive model using classification algorithms to 
 "Decision Tree": {'classifier__max_depth': [None, 5, 10, 15, 20]}
 "SVM": {'classifier__kernel': ['rbf'], 'classifier__gamma': ['scale', 0.01], 'classifier__C': [0.1, 1] }
 ```
-To address the class imbalance in the dataset, we implemented __class_weight='balanced'__ during the hyperparameter tuning phase to prevent the model from being biased toward the majority class. This ensures the model prioritizes Recall over Accuracy. And as a result of the trade-off, the Accuracy will likely to drop, but it enhances Recall. This ensures the model is optimized for sensitivity within the minority class, where the cost of missed detection is highest.
+To address the class imbalance in the dataset, we implemented __class_weight='balanced'__ during the hyperparameter tuning phase to prevent the model from being biased toward the majority class. This ensures the model prioritizes Recall over Accuracy. And as a result of the trade-off, the Accuracy will likely to drop, but it enhances Recall. This also ensures the model to be optimized for sensitivity within the minority class, where the cost of missed detection is highest.
 
 Model Performace after Tuning: 
 
-- Logistic regression is clearly the best model for this dataset. It has the highest Recall(64.5%) and the lowest training time(7.28 sec)
-- We can tell the bank that we can use Logistic regression, a fast model that can catches the most "Yes" term subscribers(64.5%)
-- KNN only looks at 1 neighbor and much likely it is just memorizing the training data(99.5% accuracy). This suggest it is overfitting. This model is not a good choice for this dataset.
+- Logistic regression is clearly the best model for this dataset. It has the highest Recall(64.5%) and the lowest training time(7.28 sec).
+  We can tell the bank that we can use Logistic regression, a fast model that can catches the most "Yes" term subscribers(64.5%)
+- KNN only looks at 1 neighbor and much likely it is just memorizing the training data(99.5% accuracy). This suggest an overfitting. This model is not a good choice for this dataset.
 - Decision Treee is reliabe with a Recall(63%) but the tree max_depth:5 is shallow.
-- SVM chooses a low values for gamma: 0.01 and C: 01, meaning the model chose a simple boundary shape. The Recall performance (64%) is so close to Logistic Regression but the extra training time( over 20-40 minutes) for 2 CV-Folds is computationaly excessive.
+- SVM chooses a low values for gamma: 0.01 and C: 01, meaning the model chooses a simple boundary shape. The Recall performance (64%) is so close to Logistic Regression but the extra training time( over 20-40 minutes) for 2 CV-Folds is computationaly excessive.
 
 
 ### Recommendations and Next Step
@@ -111,37 +111,36 @@ These are the top 5 strongest features that we should focus on:
 <br>
 #### The Strongest Predictors
 
-- cons.price.idx:  Strongest predictor. Interestingly, as the consumer price index rises, subscriptions increase. This might suggest customers look for stable bank products when other prices are going up.
+- cons.price.idx:  Strongest predictor. We can relate as the consumer price index rises, subscriptions increases. This suggests that customers are looking for stable bank products. 
 
-- euribor3m: Interest rates have a moderate positive pull on the outcome.
+- euribor3m: Interest rates have a positive pull on the outcome.
 
-- pdays_contacted: Previous contact history is significant.
+- pdays_contacted: Previous contact history is significant but in moderate volume.
 
 - month_aug / mar: Specific months provides seasonal advantage.
 
 These are the top 5 negative features that we should avoid:  
 <br>
 #### The Strongest Barriers
-- emp.var.rate : This is the biggest barrier. High employment rate strongly suggest customers are less likely to subsribe
+- emp.var.rate : This is the biggest barrier. High employment rate strongly suggest that customers are less likely to subsribe.
 
 - month_may: May has the lowest conversion compared to the other months, even though it has the most volume call.
 
-  
-- contact_telephone: Calling people on their landlines is less successfull. 
+- contact_telephone: Calling people on their landlines is less successfull in this digital age.
 
-- campaign: Suggesting increased client calls(spamming the customer), the likelihood of saying Yes drops. 
+- campaign: Suggesting an increased client calls(spamming the customer), the likely lead to saying No. 
 
 
 #### Demographic Insights
-Positive Drivers: Being Single , a Student , or Retired have a higher chance of saying yes to term deposit.
+Positive Drivers: Being Single , a Student , or Retired have a higher chance of saying Yes to term deposit.
 
 Negative Drivers: Blue-collar workers , Divorced, and Unemployed  are less likely to subscribe.
 
 
 <br>
-The cons.price.idx and emp.var.rate are the 2 main dominant features positive and negative respectively.This means the subscription is extremely sensitive to the economy. When Employment Variation Rate is high(uncertainty), we need to scale back on cold calling as they will likely to fail. Instead, during stable or high Consumer Price Index, increase on marketing resource as the data shows that customers are more inclined to subsribe on long term deposits.
+The cons.price.idx and emp.var.rate are the 2 main dominant features - positive and negative respectively. This means the subscription is extremely sensitive to the economy. When Employment Variation Rate is high(uncertainty), we need to scale back on cold calling as they will likely to fail. Instead, during stable or high Consumer Price Index, increase on marketing resource as the data shows that customers are more inclined to subsribe on long term deposits.
 
-Multiple and constant campaign calls to the same person have a strong negative effect and draws customer away from saying yes, they are getting annoyed. A recommended approach is to manage minimum calls a week or a month and a planned calling schedule.
+Multiple and constant campaign calls to the same person have a strong negative effect and draws customer away from saying Yes, they are getting annoyed. A recommended approach is to manage minimum calls a week or a month and a planned calling schedule.
 
 
 
