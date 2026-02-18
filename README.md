@@ -1,5 +1,5 @@
 # Practical Application III: Comparing Classifiers
-Berkeley Haas Projects: Practical Application 3 [January 29, 2026]
+**Berkeley Haas Projects: Practical Application 3** [January 29, 2026]
 
 ### Goal
 
