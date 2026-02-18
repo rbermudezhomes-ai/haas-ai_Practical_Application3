@@ -98,11 +98,11 @@ To address the class imbalance in the dataset, we implemented __class_weight='ba
 
 Model Performace after Tuning: 
 
-- Logistic regression is clearly the best model for this dataset. It has the highest Recall(64.5%) and the lowest training time(7.28 sec).
-  We can tell the bank that we can use Logistic regression, a fast model that can catches the most "Yes" term subscribers(64.5%)
-- KNN only looks at 1 neighbor and much likely it is just memorizing the training data(99.5% accuracy). This suggest an overfitting. This model is not a good choice for this dataset.
-- Decision Treee is reliabe with a Recall(63%) but the tree max_depth:5 is shallow.
-- SVM chooses a low values for gamma: 0.01 and C: 01, meaning the model chooses a simple boundary shape. The Recall performance (64%) is so close to Logistic Regression but the extra training time( over 20-40 minutes) for 2 CV-Folds is computationaly excessive.
+- __Logistic Regression__ is clearly the best model for this dataset. It has the highest Recall(64.5%) and the lowest training time(7.28 sec).
+  We can tell the bank that we can use Logistic Regression, a fast model that can catches the most "Yes" term subscribers(64.5%)
+- __KNearest Neighbors__ only looks at 1 neighbor and much likely it is just memorizing the training data(99.5% accuracy). This suggest an overfitting. This model is not a good choice for this dataset.
+- __Decision Tree__ is reliabe with a Recall(63%) but the tree of max_depth:5 is very shallow.
+- __SVM Support Vector Machine__ chooses a low values for gamma: 0.01 and C: 01, meaning the model chooses a simple boundary shape. The Recall performance(64%) is so close to Logistic Regression but the extra training time(of over 20-40 minutes) for 2 CV-Folds is computationaly excessive.
 
 
 ### Recommendations and Next Step
