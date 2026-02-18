@@ -96,7 +96,7 @@ Our main goal is to build a predictive model using classification algorithms to 
 ```
 To address the class imbalance in the dataset, we implemented __class_weight='balanced'__ during the hyperparameter tuning phase to prevent the model from being biased toward the majority class. This ensures the model prioritizes Recall over Accuracy. And as a result of the trade-off, the Accuracy will likely to drop, but it enhances Recall. This also ensures the model to be optimized for sensitivity within the minority class, where the cost of missed detection is highest.
 
-Model Performace after Tuning: 
+**Model Performace after Hyperparameters Tuning** 
 
 - __Logistic Regression__ is clearly the best model for this dataset. It has the highest Recall(64.5%) and the lowest training time(7.28 sec).
   We can tell the bank that we can use Logistic Regression, a fast model that can catches the most "Yes" term subscribers(64.5%)
