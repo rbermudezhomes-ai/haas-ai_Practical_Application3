@@ -29,7 +29,7 @@ In this practical application, our goal is to compare the performance of each su
 
 ### Dataset Information
 
-The dataset comes from the [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/dataset/222/bank+marketing). 
+**UCI: Bank Marketing** - The dataset comes from the [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/dataset/222/bank+marketing). 
 
 
 
