@@ -1,6 +1,10 @@
 # Practical Application III: Comparing Classifiers
 **Berkeley Haas Projects: Practical Application 3** [January 29, 2026]
 
+Author: Rommel Bermudez 
+
+Date: October 2025
+
 ### Goal
 
 In this practical application, our goal is to compare the performance of each supervised machine learning algorithms - **Classification Algorithms** namely **K Nearest Neighbor, Logistic Regression, Decision Trees, and Support Vector Machines**.  We will utilize a dataset related to marketing bank products over the telephone. 
